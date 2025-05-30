@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "222228087920",
+    "project_id": "eco-leul",
+    "storage_bucket": "eco-leul.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:222228087920:android:cb3c0247990ff8051760b5",
+        "android_client_info": {
+          "package_name": "com.example.login_fire"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDkIpm49fEAU9Lqyxxg1DW8Zg9SvsLg8iI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
