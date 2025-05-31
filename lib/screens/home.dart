@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:login_fire/screens/signin_screen.dart';
+import 'package:login_fire/screens/auth_screen/signin_screen.dart';
 import 'package:login_fire/services/auth_service.dart';
 // ✅ update the path as needed
 

@@ -1,6 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:login_fire/screens/welcome_screen.dart';
+import 'package:login_fire/screens/auth_screen/wrapper.dart';
 import 'package:login_fire/theme/theme.dart';
 
 import 'firebase_options.dart';
@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: lightMode,
-      home: const WelcomeScreen(),
+      home: const Wrapper(),
     );
   }
 }
