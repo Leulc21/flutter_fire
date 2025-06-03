@@ -213,6 +213,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               final message = await AuthService().registration(
                                 email: email,
                                 password: password,
+                                fullName: fullName,
                               );
                               if (message!.contains('Success')) {
                                 Navigator.of(context).pushReplacement(

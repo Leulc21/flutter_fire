@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:login_fire/screens/auth_screen/signin_screen.dart';
 import 'package:login_fire/services/auth_service.dart';
-// ✅ update the path as needed
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -17,10 +16,9 @@ class _HomeState extends State<Home> {
     await _authService.logout();
     if (!mounted) return;
     Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(
-            builder: (_) =>
-                const SignInScreen())); // Or use Navigator.pushReplacement to go to Login screen
+      context,
+      MaterialPageRoute(builder: (_) => const SignInScreen()),
+    );
   }
 
   @override
@@ -37,21 +35,28 @@ class _HomeState extends State<Home> {
           ),
         ],
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Text(
-              'Welcome to the Home Screen!',
-              style: TextStyle(fontSize: 24),
-            ),
-            const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: _handleLogout,
-              child: const Text('Logout'),
-            ),
-          ],
-        ),
+      body: FutureBuilder<Map<String, dynamic>?>(
+        future: _authService.getUserDetails(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Center(child: CircularProgressIndicator());
+          } else if (snapshot.hasData && snapshot.data != null) {
+            final userData = snapshot.data!;
+            return Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text("Full Name: ${userData['full name']}"),
+                  const SizedBox(height: 8),
+                  Text("Email: ${userData['email']}"),
+                ],
+              ),
+            );
+          } else {
+            return const Center(child: Text("Failed to load user data."));
+          }
+        },
       ),
     );
   }
