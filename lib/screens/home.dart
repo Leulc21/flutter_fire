@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:login_fire/screens/auth_screen/signin_screen.dart';
+import 'package:login_fire/screens/profile.dart';
 import 'package:login_fire/services/auth_service.dart';
 
 class Home extends StatefulWidget {
@@ -57,6 +58,16 @@ class _HomeState extends State<Home> {
             return const Center(child: Text("Failed to load user data."));
           }
         },
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (_) => const ProfileScreen()),
+          );
+        },
+        tooltip: 'Logout',
+        child: const Icon(Icons.logout),
       ),
     );
   }
